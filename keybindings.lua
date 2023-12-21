@@ -31,3 +31,7 @@ vim.api.nvim_set_keymap('i', '<C-s>', '<Esc>:w<CR>i', { noremap = true, silent =
 
 -- format code
 vim.keymap.set('n', '<C-A-j>', [[:normal! m'<Bar>gg=G<Bar>'`<CR>]], {})
+vim.keymap.set('i', '<C-A-j>', '<Esc>:normal! m\'<Bar>gg=G<Bar>\'`<CR>i', {})
+
+-- quit nvim
+vim.keymap.set('n', '<C-q>', ':qa<CR>', {})
