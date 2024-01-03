@@ -27,23 +27,50 @@ return {
   },
   {
     "neovim/nvim-lspconfig",
+    lazy=false,
     config=function()
-      require("lspconfig").bashls.setup{}
-      require("lspconfig").cssls.setup{}
-      require("lspconfig").dockerls.setup{}
-      require("lspconfig").docker_compose_language_service.setup{}
-      require("lspconfig").html.setup{}
-      require("lspconfig").jsonls.setup{}
-      require("lspconfig").lua_ls.setup{}
-      require("lspconfig").marksman.setup{}
-      require("lspconfig").pyright.setup{}
-      require("lspconfig").tsserver.setup{}
-      require("lspconfig").vimls.setup{}
-      require("lspconfig").yamlls.setup{}
+      local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
+      require("lspconfig").bashls.setup({
+        capabilities = capabilities
+      })
+      require("lspconfig").cssls.setup({
+        capabilities = capabilities
+      })
+      require("lspconfig").dockerls.setup({
+        capabilities = capabilities
+      })
+      require("lspconfig").docker_compose_language_service.setup({
+        capabilities = capabilities
+      })
+      require("lspconfig").html.setup({
+        capabilities = capabilities
+      })
+      require("lspconfig").jsonls.setup({
+        capabilities = capabilities
+      })
+      require("lspconfig").lua_ls.setup({
+        capabilities = capabilities
+      })
+      require("lspconfig").marksman.setup({
+        capabilities = capabilities
+      })
+      require("lspconfig").pyright.setup({
+        capabilities = capabilities
+      })
+      require("lspconfig").tsserver.setup({
+        capabilities = capabilities
+      })
+      require("lspconfig").vimls.setup({
+        capabilities = capabilities
+      })
+      require("lspconfig").yamlls.setup({
+        capabilities = capabilities
+      })
 
       vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {})
       vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
-      vim.keymap.set('n', '<C-.>', vim.lsp.buf.code_action, {noremap = true, silent = true})
+      vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, {noremap = true, silent = true})
     end
   }
 }

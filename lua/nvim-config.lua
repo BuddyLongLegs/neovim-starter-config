@@ -9,6 +9,8 @@ vim.cmd("set shiftwidth=2")
 -- Enable auto-indentation
 vim.o.smartindent = true
 
+-- Have scroll offset
+vim.o.scrolloff = 16
 
 -- Enable line numbers
 vim.api.nvim_exec([[set number]], true)

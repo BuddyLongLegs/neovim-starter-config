@@ -14,6 +14,13 @@ vim.keymap.set('n', '<A-b>', ':Neotree focus<CR>', {})
 vim.keymap.set('i', '<A-b>', '<Esc>:Neotree focus<CR>i', {})
 
 
+-- nvim-tmux-navigation keybinds
+vim.keymap.set('n', '<C-h>', ':TmuxNavigateLeft<CR>', {})
+vim.keymap.set('n', '<C-j>', ':TmuxNavigateDown<CR>', {})
+vim.keymap.set('n', '<C-k>', ':TmuxNavigateUp<CR>', {})
+vim.keymap.set('n', '<C-l>', ':TmuxNavigateRight<CR>', {})
+
+
 -- tabs-line keybinds
 local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
@@ -73,12 +80,11 @@ vim.api.nvim_set_keymap('i', '<A-Down>', '<Esc>:m .+1<CR>i', { noremap = true, s
 
 -- Save the current file on Ctrl+S in both normal and insert modes
 vim.api.nvim_set_keymap('n', '<C-s>', ':w<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('i', '<C-s>', '<Esc>:w<CR>i', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '<C-s>', '<Esc>:w<CR>', { noremap = true, silent = true })
 
 -- format code
 vim.keymap.set('n', '<C-A-j>', [[:normal! m'<Bar>gg=G<Bar>'`<CR>]], {})
 vim.keymap.set('i', '<C-A-j>', '<Esc>:normal! m\'<Bar>gg=G<Bar>\'`<CR>i', {})
 
 -- quit nvim
-vim.keymap.set('n', '<C-e>', ':qa<CR>', {})
 vim.keymap.set('n', '<C-q>', ':q<CR>', {})
